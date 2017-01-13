@@ -1,16 +1,45 @@
 package org.usfirst.frc.team88.robot.subsystems;
 
+import org.usfirst.frc.team88.robot.RobotMap;
+
+import com.ctre.CANTalon;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
 public class Shooter extends Subsystem {
+	private CANTalon shooterTalon;
+	
+	public Shooter () {
+		shooterTalon = new CANTalon(RobotMap.shooter);
+		/*
+		shooterTalon.setPID(P, I, D);
+		shooterTalon.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
+		shooterTalon.configEncoderCodesPerRev(360);
+		shooterTalon.configNominalOutputVoltage(+0.0f, -0.0f);
+		shooterTalon.configPeakOutputVoltage(+12.0f, -12.0f);
+		shooterTalon.reverseSensor(false);
+		shooterTalon.reverseOutput(false);
+		shooterTalon.enableBrakeMode(false);
+		*/
+	}
 
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
-
-    public void initDefaultCommand() {
+	public void set(double target) {
+		shooterTalon.set(target);
+		
+		SmartDashboard.putNumber("Current",shooterTalon.getOutputCurrent());
+		SmartDashboard.putNumber("Voltage",shooterTalon.getOutputVoltage());
+		SmartDashboard.putNumber("EncVelocity",shooterTalon.getEncVelocity());
+		SmartDashboard.putNumber("Speed",shooterTalon.getSpeed());
+		SmartDashboard.putNumber("SetPoint",shooterTalon.getSetpoint());
+		SmartDashboard.putNumber("Error",shooterTalon.getError());
+		SmartDashboard.putNumber("Position",shooterTalon.getPosition());
+	}
+	
+	public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
