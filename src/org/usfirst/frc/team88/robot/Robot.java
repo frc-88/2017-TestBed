@@ -1,6 +1,9 @@
 
 package org.usfirst.frc.team88.robot;
 
+import org.usfirst.frc.team88.robot.commands.AutoDoNothing;
+import org.usfirst.frc.team88.robot.commands.Start;
+import org.usfirst.frc.team88.robot.commands.Stop;
 import org.usfirst.frc.team88.robot.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -28,6 +31,10 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		shooter = new Shooter();
 		oi = new OI();
+		
+		SmartDashboard.putData("Start Shooter", new Start());
+		SmartDashboard.putData("Stop Shooter", new Stop());
+		
 	}
 
 	/**
