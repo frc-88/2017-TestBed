@@ -8,5 +8,5 @@ package org.usfirst.frc.team88.robot;
  */
 public class RobotMap {
 
-	public static int shooter = 1;
+	public static int shooter = 3;
 }

@@ -21,6 +21,7 @@ public class Start extends InstantCommand {
     // Called once when the command executes
     protected void initialize() {
     	double speed = prefs.getDouble("speed", 0.0);
+    	//double speed = 0.75;
     	
 		Robot.shooter.set(speed);
     }

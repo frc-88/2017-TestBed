@@ -30,7 +30,6 @@ public class Shooter extends Subsystem {
 
 	public void set(double target) {
 		shooterTalon.set(target);
-		
 
 	}
 	
