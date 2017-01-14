@@ -1,6 +1,7 @@
 package org.usfirst.frc.team88.robot.subsystems;
 
 import org.usfirst.frc.team88.robot.RobotMap;
+import org.usfirst.frc.team88.robot.commands.ShooterData;
 
 import com.ctre.CANTalon;
 
@@ -30,6 +31,16 @@ public class Shooter extends Subsystem {
 	public void set(double target) {
 		shooterTalon.set(target);
 		
+
+	}
+	
+	public void initDefaultCommand() {
+        // Set the default command for a subsystem here.
+        //setDefaultCommand(new MySpecialCommand());
+		setDefaultCommand(new ShooterData());
+    }
+	
+	public void displayData(){
 		SmartDashboard.putNumber("Current",shooterTalon.getOutputCurrent());
 		SmartDashboard.putNumber("Voltage",shooterTalon.getOutputVoltage());
 		SmartDashboard.putNumber("EncVelocity",shooterTalon.getEncVelocity());
@@ -38,10 +49,5 @@ public class Shooter extends Subsystem {
 		SmartDashboard.putNumber("Error",shooterTalon.getError());
 		SmartDashboard.putNumber("Position",shooterTalon.getPosition());
 	}
-	
-	public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
-    }
 }
 
