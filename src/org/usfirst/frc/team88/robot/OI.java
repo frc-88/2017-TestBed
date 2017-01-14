@@ -185,8 +185,11 @@ public class OI {
 	}
 	
 	public double applyMaxValue(double value){
-		if(Math.abs(value) >= 0.97){
+		if(value >= 0.97){
 			return 1.0;
+		}
+		else if (value <= -0.97){
+			return -1.0;
 		}
 		else{
 			return value;
