@@ -32,9 +32,11 @@ public class Robot extends IterativeRobot {
 		shooter = new Shooter();
 		oi = new OI();
 		
-		SmartDashboard.putData("Start", new Start());
-		SmartDashboard.putData("Stop", new Stop());
+		SmartDashboard.putData("Start Shooter", new StartShooter());
+		SmartDashboard.putData("Stop Shooter", new StopShooter());
 
+		SmartDashboard.putData("Start Indexer", new StartIndexer());
+		SmartDashboard.putData("Stop Indexer", new StopIndexer());
 	}
 
 	/**

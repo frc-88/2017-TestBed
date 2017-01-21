@@ -14,17 +14,18 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class Shooter extends Subsystem {
-	private double p = 0.0;
-	private double i = 0.0;
-	private double d = 0.0;
-	private double f = 6.0;
+	private double p = -40.0;
+	private double i = -3.0;
+	private double d = 120.0;
+	private double f = 3.0;
 
-	private CANTalon shooterTalon;
+	private CANTalon shooterTalon, indexerTalon;
 	private Preferences prefs;
 
 	public Shooter() {
 		prefs = Preferences.getInstance();
 		shooterTalon = new CANTalon(RobotMap.shooter);
+		indexerTalon = new CANTalon(RobotMap.indexer);
 
 		shooterTalon.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
 		shooterTalon.configEncoderCodesPerRev(80);
@@ -38,8 +39,12 @@ public class Shooter extends Subsystem {
 		shooterTalon.changeControlMode(CANTalon.TalonControlMode.Speed);
 	}
 
-	public void set(double target) {
+	public void setShooter(double target) {
 		shooterTalon.set(target);
+	}
+
+	public void setIndexer(double target) {
+		indexerTalon.set(target);
 	}
 
 	public void updatePID() {
