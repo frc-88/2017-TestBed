@@ -15,11 +15,12 @@ public class Start extends InstantCommand {
         super();
         requires(Robot.shooter);
 
-    	prefs = Preferences.getInstance();
     }
 
     // Called once when the command executes
     protected void initialize() {
+    	prefs = Preferences.getInstance();
+
     	double speed = prefs.getDouble("speed", 0.0);
 
     	Robot.shooter.updatePID();
